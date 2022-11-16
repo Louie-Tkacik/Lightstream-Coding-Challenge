@@ -42,7 +42,7 @@ class RickandMortyViewModel @Inject constructor(
     }
 
 
-    fun loadLocationrList(url: String){
+    fun loadLocationList(url: String){
         disposable.add(
             repositoryRickandMorty.getLocation("location")
                 .subscribeOn(Schedulers.io())

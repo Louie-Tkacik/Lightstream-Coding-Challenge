@@ -16,13 +16,28 @@
     </fragment>
 
     <fragment
-        android:id="@+id/listDisplayFragment"
-        android:name="com.tkacik.lightstream.view.fragments.ListDisplayFragment"
-        android:label="fragment_listdisplayfragment"
-        tools:layout="@layout/fragment_listdisplayfragment">
+        android:id="@+id/listCharDisplayFragment"
+        android:name="com.tkacik.lightstream.view.fragments.ListCharDisplayFragment"
+        android:label="fragment_listchardisplayfragment"
+        tools:layout="@layout/fragment_listchardisplayfragment">
         <action
             android:id="@+id/goToDetail"
             app:destination="@+id/detailFragment" />
+        <argument
+            android:name="detailsCharacterContainerList"
+            app:argType="com.tkacik.lightstream.model.CharacterRM[]"/>
+    </fragment>
+    <fragment
+        android:id="@+id/listLocationDisplayFragment"
+        android:name="com.tkacik.lightstream.view.fragments.ListLocationDisplayFragment"
+        android:label="fragment_listlocationdisplayfragment"
+        tools:layout="@layout/fragment_listlocationdisplayfragment">
+        <action
+            android:id="@+id/goToDetail"
+            app:destination="@+id/detailFragment" />
+        <argument
+            android:name="detailsLocationContainerList"
+            app:argType="com.tkacik.lightstream.model.Location[]"/>
     </fragment>
 
     <fragment

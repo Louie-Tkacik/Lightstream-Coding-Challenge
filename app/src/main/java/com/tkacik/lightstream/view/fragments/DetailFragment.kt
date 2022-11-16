@@ -5,6 +5,7 @@ import android.view.View
 import com.tkacik.lightstream.R
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import com.tkacik.lightstream.databinding.FragmentDetailsfragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 
