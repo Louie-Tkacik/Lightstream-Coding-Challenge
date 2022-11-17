@@ -1,6 +1,7 @@
 package com.tkacik.lightstream.util
 
 import com.tkacik.lightstream.model.Location
+import com.tkacik.lightstream.model.LocationResult
 
 
 sealed class DataStateLocations{

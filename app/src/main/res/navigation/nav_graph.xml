@@ -11,8 +11,11 @@
         android:label="fragment_searchfragment"
         tools:layout="@layout/fragment_searchfragment">
         <action
-            android:id="@+id/goToList"
-            app:destination="@+id/listDisplayFragment" />
+            android:id="@+id/goToCharList"
+            app:destination="@+id/listCharDisplayFragment" />
+        <action
+            android:id="@+id/goToLocationList"
+            app:destination="@+id/listLocationDisplayFragmentDisplayFragment" />
     </fragment>
 
     <fragment
@@ -22,7 +25,7 @@
         tools:layout="@layout/fragment_listchardisplayfragment">
         <action
             android:id="@+id/goToDetail"
-            app:destination="@+id/detailFragment" />
+            app:destination="@+id/detailCharFragment" />
         <argument
             android:name="detailsCharacterContainerList"
             app:argType="com.tkacik.lightstream.model.CharacterRM[]"/>
@@ -34,20 +37,30 @@
         tools:layout="@layout/fragment_listlocationdisplayfragment">
         <action
             android:id="@+id/goToDetail"
-            app:destination="@+id/detailFragment" />
+            app:destination="@+id/detailLocationFragment" />
         <argument
             android:name="detailsLocationContainerList"
             app:argType="com.tkacik.lightstream.model.Location[]"/>
     </fragment>
 
     <fragment
-        android:id="@+id/detailFragment"
-        android:name="com.tkacik.lightstream.view.fragments.DetailFragment"
-        android:label="fragment_detailsfragment"
-        tools:layout="@layout/fragment_detailsfragment">
+        android:id="@+id/detailCharFragment"
+        android:name="com.tkacik.lightstream.view.fragments.DetailCharFragment"
+        android:label="fragment_detailscharfragment"
+        tools:layout="@layout/fragment_char_detailsfragment">
         <argument
-            android:name="detailsContainer"
-            app:argType="com.tkacik.lightstream.model."/>
+            android:name="detailsCharContainer"
+            app:argType="com.tkacik.lightstream.model.CharacterRM"/>
+
+    </fragment>
+    <fragment
+        android:id="@+id/detailLocationFragment"
+        android:name="com.tkacik.lightstream.view.fragments.DetailLocationFragment"
+        android:label="fragment_detailslocationfragment"
+        tools:layout="@layout/fragment_location_detailsfragment">
+        <argument
+            android:name="detailsLocationContainer"
+            app:argType="com.tkacik.lightstream.model.Location"/>
 
     </fragment>
 

@@ -8,7 +8,6 @@ import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
 import com.tkacik.lightstream.R
 import com.tkacik.lightstream.adapter.LocationAdapter
-import com.tkacik.lightstream.databinding.FragmentDetailsfragmentBinding
 import com.tkacik.lightstream.databinding.FragmentListlocationdisplayfragmentBinding
 
 @AndroidEntryPoint

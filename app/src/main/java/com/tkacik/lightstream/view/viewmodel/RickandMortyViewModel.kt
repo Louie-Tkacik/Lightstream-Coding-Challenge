@@ -17,17 +17,17 @@ import javax.inject.Inject
 @HiltViewModel
 class RickandMortyViewModel @Inject constructor(
     private val repositoryRickandMorty: RepositoryRickandMorty
-): ViewModel() {
+) : ViewModel() {
     private var disposable: CompositeDisposable = CompositeDisposable()
     private val dataStateCharacters: MutableLiveData<DataStateCharacters> = MutableLiveData()
     val dataStateCharactersLD: LiveData<DataStateCharacters>
-    get() = dataStateCharacters
+        get() = dataStateCharacters
     private var dataStateLocations: MutableLiveData<DataStateLocations> = MutableLiveData()
     val dataStateLocationsLD: LiveData<DataStateLocations>
-    get() = dataStateLocations
+        get() = dataStateLocations
 
 
-    fun loadCharacterList(url: String){
+    fun loadCharacterList(url: String) {
         disposable.add(
             repositoryRickandMorty.getCharacterRM("character")
                 .subscribeOn(Schedulers.io())
@@ -35,14 +35,18 @@ class RickandMortyViewModel @Inject constructor(
                 .subscribe(this::characterSuccessRM, this::onError)
         )
     }
-    private fun characterSuccessRM(characterRM: CharacterRM){
-        val state = characterRM.results?.let {DataStateCharacters.Success(it)}
-            ?: DataStateCharacters.Error("No data found")
-        dataStateCharacters.value=state
+
+    private fun characterSuccessRM(characterRM: CharacterRM) {
+        val state = characterRM.results.let { DataStateCharacters.Success(it) }
+        dataStateCharacters.value = state
     }
 
+    private fun locationSuccess(location: Location) {
+        val state = location.results.let { DataStateLocations.Success(it) }
+        dataStateLocations.value = state
+    }
 
-    fun loadLocationList(url: String){
+    fun loadLocationList(url: String) {
         disposable.add(
             repositoryRickandMorty.getLocation("location")
                 .subscribeOn(Schedulers.io())
@@ -50,17 +54,15 @@ class RickandMortyViewModel @Inject constructor(
                 .subscribe(this::locationSuccess, this::onError)
         )
     }
-    private fun locationSuccess(location: Location){
-        val state = location.results?.let {DataStateLocations.Success(it)}
-            ?: DataStateCharacters.Error("No data found")
-        dataStateLocations.value=state
-    } //TODO: fix this
+
+
 
     private fun onError(throwable: Throwable) {
         val errorMsg = throwable.message ?: "Something went wrong."
         dataStateCharacters.value = DataStateCharacters.Error(errorMsg)
         //Log.d("_log", "this is an error" + throwable.message)
     }
+
     override fun onCleared() {
         disposable.dispose()
         super.onCleared()
@@ -71,3 +73,4 @@ class RickandMortyViewModel @Inject constructor(
         dataStateCharacters.value = DataStateCharacters.Idle
 
     }
+}

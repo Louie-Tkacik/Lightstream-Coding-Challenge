@@ -4,6 +4,7 @@ package com.tkacik.lightstream.api
 
 import com.tkacik.lightstream.model.CharResult
 import com.tkacik.lightstream.model.CharacterRM
+import com.tkacik.lightstream.model.Location
 import com.tkacik.lightstream.model.LocationResult
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
@@ -20,5 +21,5 @@ interface ServiceRickandMorty  {
     @GET("location")
     fun getLocation(
         @Query("q") url: String = "location"
-    ): Single<LocationResult>
+    ): Single<Location>
 }

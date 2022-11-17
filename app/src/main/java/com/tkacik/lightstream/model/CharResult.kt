@@ -1,8 +1,10 @@
 package com.tkacik.lightstream.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
-
+@Parcelize
 data class CharResult (
 
     @SerializedName("id"       ) var id       : Int?              = null,
@@ -18,4 +20,4 @@ data class CharResult (
     @SerializedName("url"      ) var url      : String?           = null,
     @SerializedName("created"  ) var created  : String?           = null
 
-)
+) : Parcelable
